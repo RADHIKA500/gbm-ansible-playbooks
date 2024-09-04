@@ -5,6 +5,6 @@
   tasks:
     - name: Create Cluster
       community.vmware.vmware_cluster:
-        datacenter_name: 'Datacenter'
+        datacenter_name: 'CloudX'
         cluster_name: '{{ cluster }}'
         validate_certs: false
