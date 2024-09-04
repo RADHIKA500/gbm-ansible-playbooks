@@ -1,0 +1,10 @@
+- name: Create Cluster
+  hosts: all
+  vars:
+    cluster: "{{ clustername }}"
+  tasks:
+    - name: Create Cluster
+      community.vmware.vmware_cluster:
+        datacenter_name: 'Datacenter'
+        cluster_name: '{{ cluster }}'
+        validate_certs: false
