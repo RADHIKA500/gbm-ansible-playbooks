@@ -1,0 +1,16 @@
+---      
+- name: Create a VMware VM from a template
+  hosts: localhost
+  gather_facts: no
+  vars:
+    vmname: "{{ name }}"
+  tasks:
+  - name: Clone the template
+    vmware_guest:
+      validate_certs: False
+      name: "{{ vmname }}"
+      template: "centos9_stream_tmp"
+      datacenter: CloudX
+      folder: "IM"
+      state: poweredon
+    
