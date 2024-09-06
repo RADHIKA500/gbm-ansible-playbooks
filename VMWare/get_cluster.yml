@@ -1,0 +1,14 @@
+---
+- name: Get cluster info
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Gather info from datacenter about specific cluster
+      community.vmware.vmware_cluster_info:
+        cluster_name: 'GBM-Demo'
+        validate_certs: false
+      register: cluster_info
+
+    - name: Print cluster details
+      debug:
+        msg: "{{ cluster_info }}"
