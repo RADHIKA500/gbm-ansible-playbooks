@@ -9,7 +9,7 @@
     vmware_guest:
       validate_certs: False
       name: "{{ vmname }}"
-      template: "RHEL8"
+      template: "RHEL8-tmp"
       datacenter: CloudX
       folder: "VMs"
       state: poweredon
