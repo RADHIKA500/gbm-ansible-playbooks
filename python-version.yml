@@ -6,4 +6,8 @@
       with_items:
         - "ansible --version"
         - "python --version"
-        - "echo $ANSIBLE_PYTHON_INTERPRETER"
+      register: output
+
+    - name: Print output
+      debug:
+        var: output
