@@ -1,6 +1,6 @@
 ---
 - name: Get cluster info
-  hosts: localhost
+  hosts: all
   gather_facts: no
   tasks:
     - name: Gather info from datacenter about specific cluster
