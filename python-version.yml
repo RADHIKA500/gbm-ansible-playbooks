@@ -2,5 +2,8 @@
   hosts: localhost
   tasks:
     - name: Get python version
-      command:
-        cmd: ["ansible --version", "python --version", "echo $ANSIBLE_PYTHON_INTERPRETER"]
+      command: "{{ item }}"
+      with_items:
+        - "ansible --version"
+        - "python --version"
+        - "echo $ANSIBLE_PYTHON_INTERPRETER"
