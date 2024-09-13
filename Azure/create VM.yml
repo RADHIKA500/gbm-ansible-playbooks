@@ -8,6 +8,8 @@
         resource_group: CloudX_test
         name: im-testvm
         admin_username: "mctsuser"
+        admin_password: "Mcts@1234"
+        vm_size: Standard_B1s
         image:
           offer: 0001-com-ubuntu-server-jammy
           publisher: Canonical
