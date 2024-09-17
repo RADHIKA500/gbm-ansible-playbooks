@@ -5,8 +5,8 @@
   tasks:
     - name: Create VM with defaults
       azure_rm_virtualmachine:
-        resource_group: CloudX_test
-        name: im-testvm
+        resource_group: "{{ resource_group }}"
+        name: "{{ vm_name }}
         admin_username: "mctsuser"
         admin_password: "Mcts@1234"
         vm_size: Standard_B1s
