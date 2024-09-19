@@ -5,5 +5,6 @@
     - name: Get default engine version for DB parameter group family postgres16
       amazon.aws.rds_engine_versions_info:
         engine: "{{ engine }}"
+        region: us-east-1
 
 
