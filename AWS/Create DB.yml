@@ -1,0 +1,17 @@
+---
+- name: create-rds-intance
+  hosts: localhost
+  gather_facts : false
+
+  tasks:
+    - name: provision oracle rds intance
+      rds_instance:      
+        db_instance_identifier: "{{ db_identifier }}"
+        db_name: "{{ db_name }}"
+        state: present
+        engine: postgres
+        engine_version: 14.2
+        username: "root"
+        password: "Password123"
+        db_instance_class: c5.large
+        allocated_storage: "100"
