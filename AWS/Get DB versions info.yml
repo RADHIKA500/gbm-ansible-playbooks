@@ -1,6 +1,6 @@
 ---
 - name: Get engine versions
-  host: localhost
+  hosts: localhost
   tasks:
     - name: Get default engine version for DB parameter group family postgres16
       amazon.aws.rds_engine_versions_info:
