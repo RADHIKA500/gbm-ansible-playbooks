@@ -5,7 +5,7 @@
 
   tasks:
     - name: provision oracle rds intance
-      rds_instance:      
+       amazon.aws.rds_instance:      
         db_instance_identifier: "{{ db_identifier }}"
         db_name: "{{ db_name }}"
         state: present
