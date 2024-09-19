@@ -1,4 +1,3 @@
-
 ---
 - name: Get AWS VCP and subnet info
   hosts: localhost
@@ -36,7 +35,7 @@
         var: key
 
     - name: Provision an EC2 instance with a public IP address
-      ec2_instance:
+      amazon.aws.ec2_instance:
         region: "{{ aws_region }}"
         name: "{{ instance_name }}"
         image_id: ami-0d7a109bf30624c99
