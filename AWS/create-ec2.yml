@@ -1,0 +1,55 @@
+
+---
+- name: Get AWS VCP and subnet info
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Get VPC details
+      ec2_vpc_net_info:
+        region: "{{ aws_region }}"
+      register: result
+
+
+    - name: Print VPC details
+      debug:
+        var: result
+
+    - name: Get Subnet details
+      ec2_vpc_subnet_info:
+        region: "{{ aws_region }}"
+        filters:
+          vpc-id: "{{ result.vpcs[0].vpc_id }}"
+      register: subnet
+
+    - name: Print subnet details
+      debug:
+        msg: "{{ subnet.subnets[0].subnet_id }}"
+
+    - name: Create EC2 key pair
+      ec2_key:
+        name: rj-ec2-access-key
+        region: "{{ aws_region }}"
+      register: key
+
+    - name: Print key
+      debug:
+        var: key
+
+    - name: Provision an EC2 instance with a public IP address
+      ec2_instance:
+        region: "{{ aws_region }}"
+        name: "{{ instance_name }}"
+        image_id: ami-0d7a109bf30624c99
+        instance_type: t2.micro
+        key_name: "rj-ec2-access-key"
+        vpc_subnet_id: "{{ subnet.subnets[0].subnet_id }}"
+        security_group: default
+        network:
+          assign_public_ip: true
+        tags:
+          Environment: Testing
+      register: ec2
+
+    - name: Print EC2 details
+      debug:
+        var: ec2
