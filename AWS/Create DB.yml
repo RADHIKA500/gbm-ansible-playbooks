@@ -13,7 +13,7 @@
         engine_version: 14.2
         username: "root"
         password: "Password123"
-        db_instance_class: c5.large
+        db_instance_class: "{{ db_size_class }}"
         allocated_storage: "100"
         region: "us-east-1"
         tags:
