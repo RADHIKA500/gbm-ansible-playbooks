@@ -10,7 +10,7 @@
         db_name: "{{ db_name }}"
         state: present
         engine: postgres
-        engine_version: 14.2
+        engine_version: 14.11
         username: "root"
         password: "Password123"
         db_instance_class: "{{ db_size_class }}"
