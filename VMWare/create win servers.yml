@@ -1,0 +1,21 @@
+---      
+- name: Create 5 win VMs from a template
+  hosts: localhost
+  vars:
+    vms:
+      - vm_name: gbm-vmwarevm6
+      - vm_name: gbm-vmwarevm7
+      - vm_name: gbm-vmwarevm8
+      - vm_name: gbm-vmwarevm9
+      - vm_name: gbm-vmwarevm10
+  gather_facts: no
+  tasks:
+  - name: Clone the template
+    vmware_guest:
+      validate_certs: False
+      name: "{{ item.vm_name }}"
+      template: "Windows Server 2019"
+      datacenter: CloudX
+      folder: "VMs"
+      state: poweredon
+    with_items: "{{ vms }}" 
