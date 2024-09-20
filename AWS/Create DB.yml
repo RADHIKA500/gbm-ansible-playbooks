@@ -15,5 +15,6 @@
         password: "Password123"
         db_instance_class: c5.large
         allocated_storage: "100"
+        region: "us-east-1"
         tags:
           Created_by: Radhika
