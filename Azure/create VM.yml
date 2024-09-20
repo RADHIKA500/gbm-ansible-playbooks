@@ -16,3 +16,5 @@
           sku: 22_04-lts
           version: latest
         state: present
+        tags: 
+          Created_by: Radhika
