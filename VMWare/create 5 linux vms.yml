@@ -1,0 +1,21 @@
+---      
+- name: Create 5 VMs from a template
+  hosts: localhost
+  vars:
+    vms:
+      - vm_name: gbm-vmwarevm1
+      - vm_name: gbm-vmwarevm2
+      - vm_name: gbm-vmwarevm3
+      - vm_name: gbm-vmwarevm4
+      - vm_name: gbm-vmwarevm5
+  gather_facts: no
+  tasks:
+  - name: Clone the template
+    vmware_guest:
+      validate_certs: False
+      name: "{{ item.vm_name }}"
+      template: "RHEL8-tmp"
+      datacenter: CloudX
+      folder: "VMs"
+      state: poweredon
+    with_items: "{{ vms }}" 
