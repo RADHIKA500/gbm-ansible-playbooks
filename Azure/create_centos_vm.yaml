@@ -7,7 +7,7 @@
   vars:
     resource_group: "{{ resource_group_name }}"
     vm_name: "{{ vmname }}"
-    location: "{{ region }}"
+   # location: "{{ region }}"
   tasks:
   - name: Create public IP address
     azure_rm_publicipaddress:
