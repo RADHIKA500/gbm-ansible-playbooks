@@ -16,6 +16,8 @@
         resource_group: "{{ resource_group }}"
         name: myNIC{{ vm_name }}
         public_ip_address: pubIP{{ vm_name }}
+        virtual_network: vNet
+        subnet_name: Subnet
 
     - name: Create CentOS VM
       azure.azcollection.azure_rm_virtualmachine:
