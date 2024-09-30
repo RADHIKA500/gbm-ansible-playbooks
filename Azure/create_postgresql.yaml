@@ -17,7 +17,7 @@
   #  - azure.azure_preview_modules
   vars:
     resource_group: "{{ resource_group_name }}"
-    location: westeurope
+   # location: westeurope
     postgresqlserver_name: postgresql{{ rpfx }}
     postgresqldb_name: sqldbtest
     admin_username: admxyz
@@ -31,7 +31,7 @@
           name: B_Gen5_1
           tier: Basic
           capacity: 1
-        location: "{{ location }}"
+        #location: "{{ location }}"
         enforce_ssl: True
         admin_username: "{{ admin_username }}"
         admin_password: "{{ admin_password }}"
