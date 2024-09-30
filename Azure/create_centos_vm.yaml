@@ -25,14 +25,6 @@
           access: Allow
           priority: 1001
           direction: Inbound
-  - name: Create virtual network inteface card
-    azure_rm_networkinterface:
-      resource_group: "{{ resource_group }}"
-      name: "{{ vm_name }}"
-      virtual_network: "{{ vm_name }}"
-      subnet: "{{ vm_name }}"
-      public_ip_name: "{{ vm_name }}"
-      security_group: "{{ vm_name }}"
   - name: Create VM
     azure_rm_virtualmachine:
       resource_group: "{{ resource_group }}"
@@ -40,7 +32,6 @@
       vm_size: Standard_DS1_v2
       admin_username: gbmadmin
       admin_password: Password@123
-      network_interfaces: "{{ vm_name }}"
       image:
         offer: CentOS
         publisher: OpenLogic
