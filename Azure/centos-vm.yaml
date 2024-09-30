@@ -37,10 +37,10 @@
           Created_by: Radhika
 
     - name: Open port 22 for SSH
-      azure.azcollection.azure_rm_networksecuritygroup:
+      azure.azcollection.azure_rm_securitygroup:
         resource_group: "{{ resource_group }}"
         name: myNSG"{{ vm_name }}"
-        security_rules:
+        rules:
           - name: AllowSSH
             protocol: Tcp
             destination_port_range: 22
