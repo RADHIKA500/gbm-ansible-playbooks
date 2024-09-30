@@ -3,29 +3,27 @@
 # This playbook create a MySQL server and an instance of MySQL Database,
 
 ---
-- hosts: localhost
+- name: Play1 to create random postfix number
+  hosts: localhost
   tasks:
     - name: Prepare random postfix
       set_fact:
         rpfx: "{{ 1000 | random }}"
       run_once: yes
 
-- hosts: localhost
+- name: Play2 to create DB server
+  hosts: localhost
   #roles:
   #  - azure.azure_preview_modules
   vars:
     resource_group: "{{ resource_group_name }}"
-    location: eastus
+   # location: eastus
+    location: "{{ region }}"
     mysqlserver_name: mysql{{ rpfx }}
     mysqldb_name: sqldbtest
-    admin_username: admxyz
+    admin_username: gbmadmin
     admin_password: Abcpasswordxyz12!
   tasks:
-    - name: Create a resource group
-      azure_rm_resourcegroup:
-        name: "{{ resource_group }}"
-        location: "{{ location }}"
-
     - name: Create MySQL Server
       azure_rm_mysqlserver:
         resource_group: "{{ resource_group }}"
