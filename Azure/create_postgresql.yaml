@@ -3,14 +3,16 @@
 # This playbook create a PostgreSQL server and an instance of PostgreSQL Database
 
 ---
-- hosts: localhost
+- name: Play1 to create random postfix number
+  hosts: localhost
   tasks:
     - name: Prepare random postfix
       set_fact:
         rpfx: "{{ 1000 | random }}"
       run_once: yes
 
-- hosts: localhost
+- name: Play2 to create DB server and instance
+  hosts: localhost
   #roles:
   #  - azure.azure_preview_modules
   vars:
@@ -21,11 +23,6 @@
     admin_username: admxyz
     admin_password: Abcpasswordxyz12!
   tasks:
-    - name: Create a resource group
-      azure_rm_resourcegroup:
-        name: "{{ resource_group }}"
-        location: "{{ location }}"
-
     - name: Create PostgreSQL Server
       azure_rm_postgresqlserver:
         resource_group: "{{ resource_group }}"
