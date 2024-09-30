@@ -38,7 +38,7 @@
       amazon.aws.ec2_instance:
         region: "{{ aws_region }}"
         name: "{{ instance_name }}"
-        image_id: ami-07472131ec292b5da
+        image_id: ami-036c2987dfef867fb
         instance_type: t2.micro
         key_name: "rj-ec2-access-key"
         vpc_subnet_id: "{{ subnet.subnets[0].subnet_id }}"
