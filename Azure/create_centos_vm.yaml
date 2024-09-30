@@ -58,7 +58,7 @@
       admin_password: Password@123
       network_interfaces: "{{ vm_name }}"
       image:
-        offer: UbuntuServer
-        publisher: Canonical
-        sku: 16.04-LTS
+        offer: CentOS
+        publisher: OpenLogic
+        sku: 8_5-gen2
         version: latest
