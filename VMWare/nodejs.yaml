@@ -1,0 +1,54 @@
+---      
+- name: Play 1 to Create a VMware VM from a template
+  hosts: localhost
+  gather_facts: no
+  vars:
+    vmname: "{{ name }}"
+  tasks:
+    - name: Create VM
+      community.vmware.vmware_guest:
+        validate_certs: no
+        name: "{{ vmname }}"
+        template: "centos"
+        datastore: "ds"
+      #  networks:
+          - name: "{{ vm_network }}"
+            ip: "192.168.1.100"  # Specify the static IP if needed
+            netmask: "255.255.255.0"
+            gateway: "192.168.1.1"
+        hardware:
+          memory_mb: "{{ vm_memory }}"
+          num_cpus: "{{ vm_cpus }}"
+        state: present
+        wait_for_ip_address: true
+      register: created_vm
+
+    - name: Wait for SSH to come up
+      wait_for:
+        port: 22
+        host: "{{ created_vm.instance.ip_address }}"
+        timeout: 300
+
+- name: Play2 to Install nodejs
+  hosts: "{{ name }}"
+  tasks:
+    - name: Install Node.js
+      ansible.builtin.yum:
+        name: "https://rpm.nodesource.com/setup_{{ nodejs_version }}.x"
+        state: present
+      become: yes
+
+    - name: Install Node.js and npm
+      ansible.builtin.yum:
+        name:
+          - nodejs
+          - npm
+        state: present
+      become: yes
+
+    - name: Verify Node.js installation
+      command: node -v
+      register: node_version
+
+    - debug:
+        var: node_version.stdout
