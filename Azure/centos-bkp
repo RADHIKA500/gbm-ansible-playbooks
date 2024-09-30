@@ -1,0 +1,60 @@
+---
+- name: Create Azure CentOS VM
+  hosts: localhost
+  vars:
+    resource_group: "{{ resource_group_name }}"
+    vm_name: "{{ vmname }}"
+  tasks:
+    - name: Create Public IP
+      azure.azcollection.azure_rm_publicipaddress:
+        resource_group: "{{ resource_group }}"
+        name: pubIP{{ vm_name }}
+        allocation_method: Static
+
+    - name: Create Network Interface
+      azure.azcollection.azure_rm_networkinterface:
+        resource_group: "{{ resource_group }}"
+        name: myNIC{{ vm_name }}
+        public_ip_address: pubIP{{ vm_name }}
+        virtual_network: vNet
+        subnet_name: Subnet
+
+    - name: Create CentOS VM
+      azure.azcollection.azure_rm_virtualmachine:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vm_name }}"
+        vm_size: Standard_DS1_v2
+        admin_username: gbmadmin
+        admin_password: YourStrongPassword123!
+        network_interface_names: myNIC{{ vm_name }}
+        image:
+          offer: CentOS
+          publisher: OpenLogic
+          sku: '7.9'
+          version: latest
+       # ssh_public_keys:
+       #   - path: /home/azureuser/.ssh/authorized_keys
+       #     key_data: "{{ lookup('file', '/path/to/your/public/key.pub') }}"
+        tags:
+          Created_by: Radhika
+
+    - name: Open port 22 for SSH
+      azure.azcollection.azure_rm_securitygroup:
+        resource_group: "{{ resource_group }}"
+        name: myNSG{{ vm_name }}
+        rules:
+          - name: AllowSSH
+            protocol: Tcp
+            destination_port_range: 22
+            source_address_prefix: '*'
+            source_port_range: '*'
+            destination_address_prefix: '*'
+            access: Allow
+            priority: 1000
+            direction: Inbound
+
+    - name: Associate NSG with NIC
+      azure.azcollection.azure_rm_networkinterface:
+        resource_group: "{{ resource_group }}"
+        name: myNIC{{ vm_name }}
+        network_security_group: myNSG{{ vm_name }}
