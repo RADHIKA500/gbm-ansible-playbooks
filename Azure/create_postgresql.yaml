@@ -20,7 +20,7 @@
    # location: westeurope
     postgresqlserver_name: postgresql{{ rpfx }}
     postgresqldb_name: sqldbtest
-    admin_username: admxyz
+    admin_username: gbmadmin
     admin_password: Abcpasswordxyz12!
   tasks:
     - name: Create PostgreSQL Server
