@@ -17,8 +17,12 @@
         image:
           offer: CentOS
           publisher: OpenLogic
-          sku: '8_5-gen2'
+          sku: '8_2-gen1'
           version: latest
+      #  data_disks:
+      #    disk_size_gb: 35
+      #    lun: 01
+          
        # ssh_public_keys:
        #   - path: /home/azureuser/.ssh/authorized_keys
        #     key_data: "{{ lookup('file', '/path/to/your/public/key.pub') }}"
