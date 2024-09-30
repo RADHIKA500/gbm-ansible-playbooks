@@ -29,8 +29,10 @@
         resource_group: "{{ resource_group }}"
         name: "{{ mysqlserver_name }}"
         sku:
-          name: GP_Gen4_2
-          tier: GeneralPurpose
+          #name: GP_Gen4_2
+          name: B_Gen5_1
+          tier: Basic
+         # tier: GeneralPurpose
         #location: "{{ location }}"
         version: 5.7
         enforce_ssl: True
