@@ -36,7 +36,8 @@
         enforce_ssl: True
         admin_username: "{{ admin_username }}"
         admin_password: "{{ admin_password }}"
-        storage_mb: 51200
+        storage_profile:
+          storage_mb: 51200
         tags:
           Created_by: Radhika
 
