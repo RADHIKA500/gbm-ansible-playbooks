@@ -13,9 +13,9 @@
       datacenter: LocalDC
       folder: "VMs"
       state: poweredon
-      networks:
-        - name: "VM Network"
-          type: dhcp
+     # networks:
+     #   - name: "VM Network"
+     #     type: dhcp
     register: vm
 
 
