@@ -13,4 +13,7 @@
       datacenter: LocalDC
       folder: "VMs"
       state: poweredon
+      networks:
+        - name: "VM Network"
+          type: dhcp
     
