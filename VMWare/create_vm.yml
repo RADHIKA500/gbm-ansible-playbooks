@@ -16,4 +16,12 @@
       networks:
         - name: "VM Network"
           type: dhcp
+    register: vm
+
+
+- name: Print
+  hosts: localhost
+  tasks:
+    - debug:
+        var: hostvars.localhost.vm
     
