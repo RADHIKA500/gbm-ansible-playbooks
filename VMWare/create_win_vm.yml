@@ -13,6 +13,7 @@
       datacenter: CloudX
       folder: "VMs"
       state: poweredon
-      networks:
-        - name: "Internal Network"
     register: vm
+
+  - debug:
+      var: "{{ vm }}"
