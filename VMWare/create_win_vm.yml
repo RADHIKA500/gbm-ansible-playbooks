@@ -13,7 +13,7 @@
       datacenter: CloudX
       folder: "VMs"
       state: poweredon
-    networks:
+      networks:
       - name: VM Network
         type: dhcp
         connected: true
