@@ -9,10 +9,14 @@
     vmware_guest:
       validate_certs: False
       name: "{{ vmname }}"
-      template: "Windows Server-tmp"
+      template: "win-tmp"
       datacenter: CloudX
       folder: "VMs"
       state: poweredon
+    networks:
+      - name: VM Network
+        type: dhcp
+        connected: true
     register: vm
 
   - debug:
