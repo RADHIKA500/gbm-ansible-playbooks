@@ -9,13 +9,13 @@
     vmware_guest:
       validate_certs: False
       name: "{{ vmname }}"
-      template: "CentOS"
-      datacenter: LocalDC
+      template: "RHEL8-tmp"
+      datacenter: CloudX
       folder: "VMs"
       state: poweredon
-      networks:
-        - name: "VM Network"
-          type: dhcp
+   #   networks:
+   #     - name: "Internal Network"
+   #      type: dhcp
     register: vm
 
 
