@@ -1,0 +1,14 @@
+---      
+- name: Create Windows VM from a template
+  hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: Clone the template
+    vmware_guest:
+      validate_certs: False
+      name: "{{ vmname }}"
+      template: "Windows Server 2019"
+      datacenter: CloudX
+      folder: "VMs"
+      state: poweredon
+    
