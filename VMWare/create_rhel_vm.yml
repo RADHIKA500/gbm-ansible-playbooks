@@ -15,7 +15,7 @@
       state: poweredon
       networks:
         - name: "VM Network"
-          type: DHCP
+          type: dhcp
       wait_for_ip_address: true
     register: vm
 
