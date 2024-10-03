@@ -1,5 +1,5 @@
 ---      
-- name: Create a VMware VM from CentOS template
+- name: Create a VMware VM from RHEL template
   hosts: localhost
   gather_facts: no
   vars:
@@ -13,9 +13,10 @@
       datacenter: CloudX
       folder: "VMs"
       state: poweredon
-   #   networks:
-   #     - name: "Internal Network"
-   #      type: dhcp
+      networks:
+        - name: "VM Network"
+          type: DHCP
+      wait_for_ip_address: true
     register: vm
 
 
