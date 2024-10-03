@@ -10,7 +10,7 @@
     vmware_guest:
       validate_certs: False
       name: "{{ vmname }}"
-      template: "RHEL8-tmp"
+      template: "CentOS"
       datacenter: CloudX
       folder: "VMs"
       state: poweredon
