@@ -22,6 +22,10 @@
       wait_for_ip_address: true
     register: vm
 
+  - name: Sleep
+    ansible.builtin.pause:
+      minutes: 1
+
   - name: Connect metwork interface
     community.vmware.vmware_guest_network:
       validate_certs: False
