@@ -22,5 +22,11 @@
       wait_for_ip_address: true
     register: vm
 
-  - debug:
-      var: "{{ vm }}"
+  - name: Connect metwork interface
+    community.vmware.vmware_guest_network:
+      validate_certs: False
+      name: "{{ vmname }}"
+      network_name: "Internal Network"
+      connected: true
+      start_connected : true
+    
