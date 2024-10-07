@@ -31,7 +31,7 @@
 
   - name: Install Node.js
     ansible.builtin.yum:
-      name: "https://rpm.nodesource.com/setup_{{ nodejs_version }}.x"
+      name: "https://rpm.nodesource.com/setup_12.x"
       state: present
     become: yes
 
