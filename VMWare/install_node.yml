@@ -34,6 +34,7 @@
       name: "https://rpm.nodesource.com/setup_12.x"
       state: present
     become: yes
+    delegate_to: "{{ vm.instance.ipv4 }}"
 
   - name: Install Node.js and npm
     ansible.builtin.yum:
@@ -42,10 +43,13 @@
       - npm
       state: present
     become: yes
+    delegate_to: "{{ vm.instance.ipv4 }}"
 
   - name: Verify Node.js installation
     command: node -v
     register: node_version
+    delegate_to: "{{ vm.instance.ipv4 }}"
 
   - debug:
       var: node_version.stdout
+      delegate_to: "{{ vm.instance.ipv4 }}"
