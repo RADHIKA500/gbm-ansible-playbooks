@@ -29,11 +29,11 @@
       timeout: 300
 
 
-#  - name: Install Node.js
- #   ansible.builtin.yum:
-  #    name: "https://rpm.nodesource.com/setup_12.x"
-   #   state: present
- #   become: yes
+  - name: Install Node.js
+    ansible.builtin.yum:
+      name: "https://rpm.nodesource.com/setup_12.x"
+      state: present
+    become: yes
 
   - name: Install Node.js and npm
     ansible.builtin.yum:
@@ -41,7 +41,7 @@
       - nodejs
       - npm
       state: present
-  #  become: yes
+    become: yes
 
   - name: Verify Node.js installation
     command: node -v
