@@ -4,7 +4,7 @@
   gather_facts: no
   vars:
     vmname: "{{ name }}"
-    pkg: "{{ package }}"
+
   tasks:
   - name: Clone the template
     vmware_guest:
@@ -29,24 +29,23 @@
       timeout: 300
 
 
-    - name: Install Node.js
-      ansible.builtin.yum:
-        name: "https://rpm.nodesource.com/setup_{{ nodejs_version }}.x"
-        state: present
-      become: yes
+  - name: Install Node.js
+    ansible.builtin.yum:
+      name: "https://rpm.nodesource.com/setup_{{ nodejs_version }}.x"
+      state: present
+    become: yes
 
-    - name: Install Node.js and npm
-      ansible.builtin.yum:
-        name:
-          - nodejs
-          - npm
-        state: present
-      become: yes
+  - name: Install Node.js and npm
+    ansible.builtin.yum:
+      name:
+      - nodejs
+      - npm
+      state: present
+    become: yes
 
-    - name: Verify Node.js installation
-      command: node -v
-      register: node_version
+  - name: Verify Node.js installation
+    command: node -v
+    register: node_version
 
-    - debug:
-        var: node_version.stdout
-    
+  - debug:
+    var: node_version.stdout
