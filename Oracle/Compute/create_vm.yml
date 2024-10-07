@@ -1,0 +1,21 @@
+---
+- name: Create Oracle Cloud VM Instance
+  hosts: localhost
+  tasks:
+    - name: Launch a new VM instance
+      oracle.oci.oci_instance:
+        compartment_id: <your_compartment_id>
+        availability_domain: <your_availability_domain>
+        display_name: "my-vm-instance"
+        shape: "VM.Standard2.1"  # Change as needed
+        image: "<your_image_ocid>"  # Replace with your image OCID
+        subnet_id: "<your_subnet_id>"
+        assign_public_ip: true
+        metadata:
+          ssh_authorized_keys: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+        state: present
+      register: instance
+
+    - name: Output instance details
+      debug:
+        var: instance
