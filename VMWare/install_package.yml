@@ -1,5 +1,5 @@
 ---      
-- name: Create a VMware VM from RHEL template
+- name: Create a VMware VM from CentOS template
   hosts: localhost
   gather_facts: no
   vars:
@@ -28,10 +28,25 @@
       delay: 10
       timeout: 300
 
-  - name: Install package
-    ansible.builtin.yum:
-      name: "{{ pkg }}"
-      state: present
-    delegate_to: "{{ vm.instance.ipv4 }}"
-    become: yes
+
+    - name: Install Node.js
+      ansible.builtin.yum:
+        name: "https://rpm.nodesource.com/setup_{{ nodejs_version }}.x"
+        state: present
+      become: yes
+
+    - name: Install Node.js and npm
+      ansible.builtin.yum:
+        name:
+          - nodejs
+          - npm
+        state: present
+      become: yes
+
+    - name: Verify Node.js installation
+      command: node -v
+      register: node_version
+
+    - debug:
+        var: node_version.stdout
     
