@@ -48,4 +48,4 @@
     register: node_version
 
   - debug:
-    var: node_version.stdout
+      var: node_version.stdout
