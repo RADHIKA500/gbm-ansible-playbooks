@@ -10,7 +10,7 @@
     vmware_guest:
       validate_certs: False
       name: "{{ vmname }}"
-      template: "CentOS"
+      template: "centos-test"
       datacenter: CloudX
       folder: "VMs"
       state: poweredon
