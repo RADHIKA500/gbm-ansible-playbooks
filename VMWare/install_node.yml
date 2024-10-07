@@ -29,13 +29,6 @@
       timeout: 300
 
 
-  - name: Install Node.js
-    ansible.builtin.yum:
-      name: "https://rpm.nodesource.com/setup_12.x"
-      state: present
-    become: yes
-    delegate_to: "{{ vm.instance.ipv4 }}"
-
   - name: Install Node.js and npm
     ansible.builtin.yum:
       name:
