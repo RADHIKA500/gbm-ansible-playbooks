@@ -7,17 +7,19 @@
 
 - hosts: localhost
   tasks:
-    - name: Prepare random postfix
-      set_fact:
-        rpfx: "{{ 1000 | random }}"
-      run_once: yes
+ #   - name: Prepare random postfix
+  #    set_fact:
+   #     rpfx: "{{ 1000 | random }}"
+    #  run_once: yes
 
 - hosts: localhost
   vars:
     resource_group: "{{ resource_group_name }}"
    # location: eastus
-    sqlserver_name: sqlansible{{ rpfx }}
-    sqldb_name: sqldbtest
+   # sqlserver_name: sqlansible{{ rpfx }}
+   # sqldb_name: sqldbtest
+    sqlserver_name: "{{ sql_server_name }}"
+    sqldb_name: "{{ sql_db_name }}"
     admin_username: gbmadmin
     admin_password: Abcpasswordxyz12!
   tasks:
