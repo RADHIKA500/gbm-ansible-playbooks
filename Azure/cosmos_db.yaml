@@ -32,7 +32,7 @@
         enable_automatic_failover: yes
 
     - name: Get Cosmos DB Account facts with keys
-      azure_rm_cosmosdbaccount_facts:
+      azure_rm_cosmosdbaccount_info:
         resource_group: "{{ resource_group }}"
         name: "{{ cosmosdbaccount_name }}"
         retrieve_keys: all
