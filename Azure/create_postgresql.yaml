@@ -6,10 +6,10 @@
 - name: Play1 to create random postfix number
   hosts: localhost
   tasks:
-    - name: Prepare random postfix
-      set_fact:
-        rpfx: "{{ 1000 | random }}"
-      run_once: yes
+#    - name: Prepare random postfix
+ #     set_fact:
+  #      rpfx: "{{ 1000 | random }}"
+   #   run_once: yes
 
 - name: Play2 to create DB server and instance
   hosts: localhost
@@ -18,8 +18,10 @@
   vars:
     resource_group: "{{ resource_group_name }}"
    # location: westeurope
-    postgresqlserver_name: postgresql{{ rpfx }}
-    postgresqldb_name: sqldbtest
+   # postgresqlserver_name: postgresql{{ rpfx }}
+    postgresqlserver_name: "{{ pgserver_name }}"
+   # postgresqldb_name: sqldbtest
+    postgresqldb_name: "{{ pgdb_name }}"
     admin_username: gbmadmin
     admin_password: Abcpasswordxyz12!
   tasks:
