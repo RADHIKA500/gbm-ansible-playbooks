@@ -4,7 +4,7 @@
   vars:
   tasks:
     - name: Create sql managed instance
-      azure_rm_sqlmanagedinstance:
+      azure.azcollection.azure_rm_sqlmanagedinstance:
         resource_group: "{{ resource_group }}"
         name: "{{ instance_name }}"
         sku:
