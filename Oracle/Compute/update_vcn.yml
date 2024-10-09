@@ -1,0 +1,8 @@
+---
+- name: Update VCN
+  hosts: localhost
+  tasks:
+    - name: Updates the specified VCN's display name
+      community.general.oci_vcn:
+        vcn_id: ocid1.vcn.oc1.me-dubai-1.amaaaaaa3facxyyagoell34lxawcxhyppeu56i5dd2t5r4scnj3qt6yhfuzq
+        display_name: cloudx-vcn-rj
