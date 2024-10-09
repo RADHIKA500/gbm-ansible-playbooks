@@ -1,0 +1,20 @@
+---
+- name: Create managed sql instance
+  hosts: localhost
+  vars:
+  tasks:
+    - name: Create sql managed instance
+      azure_rm_sqlmanagedinstance:
+        resource_group: "{{ resource_group }}"
+        name: "{{ instance_name }}"
+        sku:
+          name: GP_Gen5
+          tier: GeneralPurpose
+          family: Gen5
+          capacity: 5
+        identity:
+          type: SystemAssigned
+        administrator_login: azureuser
+        administrator_login_password: Ft@password0329test
+        storage_size_in_gb: 256
+        v_cores: 8
