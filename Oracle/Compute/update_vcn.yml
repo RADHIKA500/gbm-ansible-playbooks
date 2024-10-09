@@ -1,6 +1,8 @@
 ---
 - name: Update VCN
   hosts: localhost
+  collections:
+    community.general
   tasks:
     - name: Updates the specified VCN's display name
       community.general.oci_vcn:
