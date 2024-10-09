@@ -1,5 +1,5 @@
 ---
 collections:
   - name: oracle.oci
-#  - name: community.general
+  - name: community.general
   
