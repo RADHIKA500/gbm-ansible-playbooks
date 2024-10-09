@@ -1,6 +1,8 @@
 ---
 - name: Create Oracle Cloud VM Instance
   hosts: localhost
+  collections:
+    - oracle.oci
   tasks:
     - name: Launch a new VM instance
       oracle.oci.oci_instance:
