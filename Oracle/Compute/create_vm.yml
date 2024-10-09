@@ -10,9 +10,15 @@
         availability_domain: "AD-1"
         display_name: "my-vm-instance"
         shape: "VM.Standard.E5.Flex"  # Change as needed
-        image: "ocid1.image.oc1.me-dubai-1.aaaaaaaartavz27mnra44bihak3wqwt3xjtl6rjp75mvhqm7fde5u45w5ssa"  # Replace with your image OCID
-        subnet_id: "ocid1.subnet.oc1.me-dubai-1.aaaaaaaazyg4s46gwhrwbp227nmjvwpektrtztlpqoecoad27o432326v6xq"
-        assign_public_ip: false
+        source_details:
+          source_type: image
+          image_id: "ocid1.image.oc1.me-dubai-1.aaaaaaaartavz27mnra44bihak3wqwt3xjtl6rjp75mvhqm7fde5u45w5ssa"
+        #image: "ocid1.image.oc1.me-dubai-1.aaaaaaaartavz27mnra44bihak3wqwt3xjtl6rjp75mvhqm7fde5u45w5ssa"  # Replace with your image OCID
+        #subnet_id: "ocid1.subnet.oc1.me-dubai-1.aaaaaaaazyg4s46gwhrwbp227nmjvwpektrtztlpqoecoad27o432326v6xq"
+        create_vnic_details:
+          assign_public_ip: no
+          display_name: "vnic0"
+          subnet_id: "ocid1.subnet.oc1.me-dubai-1.aaaaaaaazyg4s46gwhrwbp227nmjvwpektrtztlpqoecoad27o432326v6xq"
         metadata: null
         state: present
       register: instance
