@@ -4,6 +4,10 @@
   collections:
     - oracle.oci
   tasks:
+    - name: Installing oci python library using Ansible pip module
+      pip:
+        name: oci
+        
     - name: Launch a new VM instance
       oracle.oci.oci_compute_instance:
         compartment_id: "ocid1.tenancy.oc1..aaaaaaaaa7r6ogjtqlv53fkqqtqvnkxdxqq4fzmhs2zeoixqvy3yby4ayz4a"
