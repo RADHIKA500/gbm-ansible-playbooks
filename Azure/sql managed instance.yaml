@@ -6,7 +6,7 @@
     - name: Create sql managed instance
       azure.azcollection.azure_rm_sqlmanagedinstance:
         resource_group: "{{ resource_group }}"
-        subnet_id: "e8993110-5765-4a27-8571-b563ff9f001a"
+        subnet_id: "/subscriptions/af5057c9-2d22-4a08-b43b-5e901bf57f6b/resourceGroups/CloudX_test/providers/Microsoft.Network/virtualNetworks/vNet/subnets/Subnet"
         name: "{{ instance_name }}"
         sku:
           name: GP_Gen5
