@@ -2,6 +2,10 @@
 - name: Get instance details
   hosts: localhost
   tasks:
+    - name: Installing oci python library using Ansible pip module
+      pip:
+        name: oci
+
     - name: Get a specific instance
       oracle.oci.oci_compute_instance_facts:
        # required
