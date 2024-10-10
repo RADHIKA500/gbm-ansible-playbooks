@@ -10,6 +10,7 @@
         admin_username: "mctsadmin"
         admin_password: "Mcts@1234"
         vm_size: Standard_B1s
+        os_type: Windows
         image:
           offer: WindowsServer
           publisher: MicrosoftWindowsServer
