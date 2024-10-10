@@ -1,0 +1,38 @@
+---
+- name: Create Oracle Cloud Windows instance
+  hosts: localhost
+  collections:
+    - oracle.oci
+  vars:
+    instance_name: "{{ name }}"
+  tasks:
+    - name: Installing oci python library using Ansible pip module
+      pip:
+        name: oci
+        
+    - name: Launch a new VM instance
+      oracle.oci.oci_compute_instance:
+        compartment_id: "ocid1.tenancy.oc1..aaaaaaaaa7r6ogjtqlv53fkqqtqvnkxdxqq4fzmhs2zeoixqvy3yby4ayz4a"
+        availability_domain: "lkte:ME-DUBAI-1-AD-1"
+        name: "{{ instance_name }}"
+       
+        shape: "VM.Standard.E5.Flex" # Change as needed
+        shape_config:
+          memory_in_gbs: 12
+          ocpus: 1
+          
+        source_details:
+          source_type: image
+          image_id: "ocid1.image.oc1.me-dubai-1.aaaaaaaabrfe6bowkda3b3llao4x5dtqws2n3lrw5e6wkhc7cfpeqcpmubiq" #windows image
+   
+        create_vnic_details:
+          assign_public_ip: false
+          display_name: "vnic0"
+          subnet_id: "ocid1.subnet.oc1.me-dubai-1.aaaaaaaazyg4s46gwhrwbp227nmjvwpektrtztlpqoecoad27o432326v6xq"
+       # metadata: null
+        state: present
+      register: instance
+
+    - name: Output instance details
+      debug:
+        var: instance
