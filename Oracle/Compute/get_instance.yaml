@@ -1,0 +1,8 @@
+---
+- name: Get instance details
+  hosts: localhost
+  tasks:
+    - name: Get a specific instance
+      oci_compute_instance_facts:
+       # required
+      instance_id: "ocid1.instance.oc1.me-dubai-1.anshqljr3facxyycjxhhlj2gzqdlnq4uon6ip7udnc2sra4rryyy6putdbya"
