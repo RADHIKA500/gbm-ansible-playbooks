@@ -12,7 +12,7 @@
       oracle.oci.oci_compute_instance:
         compartment_id: "ocid1.tenancy.oc1..aaaaaaaaa7r6ogjtqlv53fkqqtqvnkxdxqq4fzmhs2zeoixqvy3yby4ayz4a"
         availability_domain: "AD-1"
-        display_name: "my-vm-instance"
+        name: "my-vm-instance"
       ##  region: me-dubai-1
         
         shape: "VM.Standard.E5.Flex"  # Change as needed
@@ -21,10 +21,10 @@
           image_id: "ocid1.image.oc1.me-dubai-1.aaaaaaaartavz27mnra44bihak3wqwt3xjtl6rjp75mvhqm7fde5u45w5ssa"
     ##    image_id: "ocid1.image.oc1.me-dubai-1.aaaaaaaartavz27mnra44bihak3wqwt3xjtl6rjp75mvhqm7fde5u45w5ssa"  # Replace with your image OCID
    ##     subnet_id: "ocid1.subnet.oc1.me-dubai-1.aaaaaaaazyg4s46gwhrwbp227nmjvwpektrtztlpqoecoad27o432326v6xq"
-        create_vnic_details:
-          assign_public_ip: true
-          display_name: "vnic0"
-          subnet_id: "ocid1.subnet.oc1.me-dubai-1.aaaaaaaazyg4s46gwhrwbp227nmjvwpektrtztlpqoecoad27o432326v6xq"
+       ## create_vnic_details:
+         ## assign_public_ip: true
+          ##display_name: "vnic0"
+          ##subnet_id: "ocid1.subnet.oc1.me-dubai-1.aaaaaaaazyg4s46gwhrwbp227nmjvwpektrtztlpqoecoad27o432326v6xq"
        # metadata: null
         state: present
       register: instance
