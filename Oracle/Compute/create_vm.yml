@@ -23,7 +23,7 @@
           assign_public_ip: no
           display_name: "vnic0"
           subnet_id: "ocid1.subnet.oc1.me-dubai-1.aaaaaaaazyg4s46gwhrwbp227nmjvwpektrtztlpqoecoad27o432326v6xq"
-        metadata: null
+       # metadata: null
         state: present
       register: instance
 
