@@ -11,8 +11,8 @@
     - name: Launch a new VM instance
       oracle.oci.oci_compute_instance:
         compartment_id: "ocid1.tenancy.oc1..aaaaaaaaa7r6ogjtqlv53fkqqtqvnkxdxqq4fzmhs2zeoixqvy3yby4ayz4a"
-        availability_domain: "AD-1"
-        name: "instance-oci-rj"
+        availability_domain: "lkte:ME-DUBAI-1-AD-1"
+        name: "instance-oci-rj2"
       ##  region: me-dubai-1
         
         shape: "VM.Standard.E5.Flex"  # Change as needed
