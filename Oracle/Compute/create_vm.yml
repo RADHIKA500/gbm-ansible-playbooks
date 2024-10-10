@@ -15,7 +15,11 @@
         name: "instance-oci-rj2"
       ##  region: me-dubai-1
         
-        shape: "VM.Standard.E5.Flex"  # Change as needed
+        shape: "VM.Standard.E5.Flex" # Change as needed
+        shape_config:
+          memory_in_gbs: 12
+          ocpus: 1
+          
         source_details:
           source_type: image
           image_id: "ocid1.image.oc1.me-dubai-1.aaaaaaaartavz27mnra44bihak3wqwt3xjtl6rjp75mvhqm7fde5u45w5ssa"
