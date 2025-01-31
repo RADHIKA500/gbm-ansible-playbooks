@@ -18,7 +18,7 @@
         ibm.power_hmc.powervm_lpar_instance:
             hmc_auth: "{{ curr_hmc_auth }}"
             hmc_host: "{{ curr_hmc_host }}"
-           # system_name: zepp31fp
+            system_name: Server-8284-22A-SN214E17W
             vm_name: rj-partition1
             proc: 2
             proc_unit: 2
