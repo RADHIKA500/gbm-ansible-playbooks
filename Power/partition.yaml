@@ -1,10 +1,11 @@
 ---
 - name: HMC create and activate logical partition
   hosts: localhost
-  #vars:
-#      curr_hmc_auth:
- #         username: hscroot
-  #        password: abc123
+  vars:
+      curr_hmc_auth:
+          username: hscroot
+          password: abc123
+      hmc_host: 10.10.16.11
   collections:
     - ibm.power_hmc
 
@@ -15,7 +16,7 @@
           
       - name: Create logical partition with mem, shared proc, storage, network config and npiv
         ibm.power_hmc.powervm_lpar_instance:
-        #    hmc_auth: "{{ curr_hmc_auth }}"
+            hmc_auth: "{{ curr_hmc_auth }}"
            # system_name: zepp31fp
             vm_name: rj-partition1
             proc: 2
@@ -33,7 +34,7 @@
       - name: Activate logical partition with default profile and keylock config
         ibm.power_hmc.powervm_lpar_instance:
         #    hmc_host: '{{ inventory_hostname }}'
-        #    hmc_auth: "{{ curr_hmc_auth }}"
+            hmc_auth: "{{ curr_hmc_auth }}"
         #    system_name: zepp31fp
             vm_name: rj-partition1
             keylock: normal
