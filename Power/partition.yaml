@@ -5,7 +5,7 @@
       curr_hmc_auth: "{{ hmc_auth }}"
       #    username: hscroot
       #    password: abc123
-      curr_hmc_host: 10.10.16.11
+      curr_hmc_host: "{{ hmc_host }}"
   collections:
     - ibm.power_hmc
 
