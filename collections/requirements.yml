@@ -2,4 +2,5 @@
 collections:
   - name: oracle.oci
   - name: community.general
+  - name: ibm.power_hmc
   
