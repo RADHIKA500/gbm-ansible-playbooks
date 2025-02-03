@@ -34,9 +34,9 @@
 
       - name: Activate logical partition with default profile and keylock config
         ibm.power_hmc.powervm_lpar_instance:
-        #    hmc_host: '{{ inventory_hostname }}'
+        #   hmc_host: '{{ inventory_hostname }}'
             hmc_auth: "{{ curr_hmc_auth }}"
-        #    system_name: zepp31fp
+            system_name: Server-8284-22A-SN214E17W
             vm_name: rj-partition1
             keylock: normal
             action: poweron
