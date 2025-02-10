@@ -21,7 +21,7 @@
             hmc_auth: "{{ curr_hmc_auth }}"
             hmc_host: "{{ curr_hmc_host }}"
             system_name: Server-8284-22A-SN214E17W
-            vm_name: rj-partition1
+            vm_name: "{{ vm_name }}"
             proc: 2
             proc_unit: 2
             mem: 2048
@@ -39,6 +39,6 @@
             hmc_host: '{{ curr_hmc_host }}'
             hmc_auth: "{{ curr_hmc_auth }}"
             system_name: Server-8284-22A-SN214E17W
-            vm_name: rj-partition1
+            vm_name: "{{ vm_name }}"
             keylock: normal
             action: poweron
