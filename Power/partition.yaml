@@ -22,7 +22,7 @@
             hmc_host: "{{ curr_hmc_host }}"
             system_name: Server-8284-22A-SN214E17W
             vm_name: "{{ vm_name }}"
-            proc: 0.5
+            proc: 1
             mem: 512
             os_type: aix
             max_virtual_slots: 50
