@@ -9,7 +9,8 @@
     vmware_guest:
       validate_certs: False
       name: "{{ vmname }}"
-      template: "win-tmp"
+      #template: "win-tmp"
+      template: "Windows Server 2019"
       datacenter: CloudX
       folder: "VMs"
       state: poweredon
