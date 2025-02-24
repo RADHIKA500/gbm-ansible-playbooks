@@ -15,7 +15,7 @@
       folder: "VMs"
       state: poweredon
       networks:
-      - name: "Internal Network"
+      - name: "VM Network"
         type: dhcp
         connected: true
     register: vm
