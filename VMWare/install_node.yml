@@ -11,7 +11,7 @@
       validate_certs: False
       name: "{{ vmname }}"
      # template: "centos-test"
-      template: "CentOS"
+      template: "cloudx-centos-template"
       datacenter: CloudX
       folder: "VMs"
       state: poweredon
