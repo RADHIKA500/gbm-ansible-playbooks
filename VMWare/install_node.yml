@@ -16,7 +16,7 @@
       folder: "VMs"
       state: poweredon
       networks:
-        - name: "VM Network"
+        - name: "Internal Network"
           type: dhcp
           connected: true
       wait_for_ip_address: true
