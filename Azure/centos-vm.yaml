@@ -15,7 +15,7 @@
         admin_password: YourStrongPassword123!
        # network_interface_names: myNIC{{ vm_name }}
         image:
-          offer: CentOS
+          offer: CentOS-based
           publisher: OpenLogic
           sku: '8_2-gen1'
           version: latest
