@@ -22,7 +22,7 @@
           offer: centos
           publisher: openlogic
          # sku: '8_5-gen2'
-          sku: '7.9'
+          sku: '7_9'
           version: latest
         #data_disks:
          # disk_size_gb: 35
